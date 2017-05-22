@@ -1,181 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Virtualization</title>
-	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="shower/themes/material/styles/screen-16x10.css">
+  <title>Virtualization</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../shower/themes/material/styles/screen-16x10.css">
 </head>
 <body class="shower list">
-	<header class="caption">
-		<h1>Virtualization</h1>
-		<p>Lists</p>
-	</header>
-	<section class="slide" id="cover">
-		<h2 class="place center right">
-			Virtualization&nbsp;
-			<p>Lists&nbsp;</p>
-		</h2>
-		<img src="pictures/virtualization.jpg" alt="" class="cover">
-		<style>
-			#cover h2 {
-				margin: 30px 0 0;
-				color: #FFF;
-				font-size: 60px;
-				text-align: right;
-				}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>Умные слова</h2>
-		<figure>
-			<blockquote>
-				<p><b>Виртуализация</b> — это процесс создания программного (или виртуального) представления чего-либо в противоположность его физической реализации. Виртуализацию можно применять для приложений, серверов, систем хранения и сетей.</p>
-			</blockquote>
-			<figcaption>Wikipedia</figcaption>
-		</figure>
-	</section>
-	<section class="slide">
-		<img src="pictures/list.jpg" alt="" class="cover">
-	</section>
-	<section class="slide" id="problems">
-		<h2>
-			Проблемы
-			<p><mark>* которые решает подход виртуализации для частного случая – списка</mark></p>
-		</h2>
-		<ul>
-			<li>Большой объём данных (Big data)</li>
-			<li>Ограниченные ресурсы</li>
-			<li>User Experience (UX)</li>
-			<li>Просто дизайнер, он так видит</li>
-		</ul>
-		<style>
-			#problems p {
-				margin: 0;
-				font-size: 15px;
-				}
-		</style>
-	</section>
-	<section class="slide" id="solutions">
-		<h2>Решения</h2>
-		<ul>
-			<li>Пагинация/слайды
-				<img src="pictures/pagination.png" alt="" height="200px" class="place top right"></li>
-			<li class="next">Infinite scroll
-				<img src="pictures/infinite.jpg" alt="" height="200px" class="place center right"></li>
-			<li class="next">Клонированные элементы
-				<img src="pictures/scroller.gif" alt="" height="200px" class="place bottom right"></li>
-			<li class="next">Скрытые элементы
-				<img src="pictures/hidden.jpg" alt="" height="200px" class="place bottom left"></li>
-			<li class="next">...</li>
-		</ul>
-		<style>
-			#solutions img {
-				z-index: -1;
-				}
-		</style>
-	</section>
-	<section class="slide" id="test-examples">
-		<h2>Неплохие тесты</h2>
-		<table class="results">
-			<tr>
-				<th scope="col"># of Records</th>
-				<th scope="col">Render Time</th>
-				<th scope="col"># of DOM Nodes</th>
-			</tr>
-			<tr>
-				<td>25</td>
-				<td>0.047 sec</td>
-				<td>329</td>
-			</tr>
-			<tr>
-				<td>250</td>
-				<td>0.466 sec</td>
-				<td>2,354</td>
-			</tr>
-			<tr>
-				<td>2,500</td>
-				<td class="bad">14.425 sec</td>
-				<td class="medium">22,604</td>
-			</tr>
-			<tr>
-				<td>25,000</td>
-				<td class="bad">crashed</td>
-				<td class="bad">??</td>
-			</tr>
-			<tr>
-				<td>250,000</td>
-				<td class="bad">crashed</td>
-				<td class="bad">??</td>
-			</tr>
-			<tr>
-				<td>1,000,000</td>
-				<td class="bad">crashed</td>
-				<td class="bad">??</td>
-			</tr>
-		</table>
-		<style>
-			#test-examples .bad {
-				background-color: #FFD9D7;
-			}
-			#test-examples .medium {
-				background-color: #FFF0D6;
-			}
-		</style>
-	</section>
-	<section class="slide">
-		<h2>Результаты после виртуализации</h2>
-		<table class="results">
-			<tr>
-				<th scope="col"># of Records</th>
-				<th scope="col">Render Time</th>
-				<th scope="col"># of DOM Nodes</th>
-			</tr>
-			<tr>
-				<td>25</td>
-				<td>0.021 sec</td>
-				<td>355</td>
-			</tr>
-			<tr>
-				<td>250</td>
-				<td>0.112 sec</td>
-				<td>2,605</td>
-			</tr>
-			<tr>
-				<td>2,500</td>
-				<td>0.036 sec</td>
-				<td>705</td>
-			</tr>
-			<tr>
-				<td>25,000</td>
-				<td>0.051 sec</td>
-				<td>705</td>
-			</tr>
-			<tr>
-				<td>250,000</td>
-				<td>0.198 sec</td>
-				<td>705</td>
-			</tr>
-			<tr>
-				<td>1,000,000</td>
-				<td>0.676 sec</td>
-				<td>705</td>
-			</tr>
-		</table>
-	</section>
-	<section class="slide">
-		<p>
-			Large number of DOM nodes make rendering slow
-			JavaScript arrays can handle large data sets
-			Looping through large arrays is fast
-			Sorting arrays by providing custom function to Array.sort() is fast
-			eval() is slow, should not be used in large loops
-			To achieve smooth scrolling render a few hidden records on top and bottom outside of the visible area
-		</p>
-	</section>
-	<div class="progress"></div>
-	<script src="shower/shower.min.js"></script>
-	<!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+  <header class="caption">
+    <h1>Virtualization</h1>
+    <p>Lists</p>
+  </header>
+  <section class="slide" id="cover">
+    <h2 class="place center right">
+      Virtualization&nbsp;
+      <p>Lists&nbsp;</p>
+    </h2>
+    <img src="pictures/virtualization.jpg" alt="" class="cover">
+    <style>
+      #cover h2 {
+        margin: 30px 0 0;
+        color: #FFF;
+        font-size: 60px;
+        text-align: right;
+      }
+    </style>
+  </section>
+  <section class="slide">
+    <h2>Умные слова</h2>
+    <figure>
+      <blockquote>
+        <p><b>Виртуализация</b> — это процесс создания программного (или виртуального) представления чего-либо в противоположность его физической реализации. Виртуализацию можно применять для приложений, серверов, систем хранения и сетей.</p>
+      </blockquote>
+      <figcaption>Wikipedia</figcaption>
+    </figure>
+  </section>
+  <section class="slide">
+    <img src="pictures/list.jpg" alt="" class="cover">
+  </section>
+  <section class="slide" id="problems">
+    <h2>
+      Проблемы
+      <p><mark>* которые решает подход виртуализации для частного случая – списка</mark></p>
+    </h2>
+    <ul>
+      <li>Большой объём данных (Big data)</li>
+      <li>Ограниченные ресурсы</li>
+      <li>User Experience (UX)</li>
+      <li>Просто дизайнер, он так видит</li>
+    </ul>
+    <style>
+      #problems p {
+        margin: 0;
+        font-size: 15px;
+      }
+    </style>
+  </section>
+  <section class="slide" id="solutions">
+    <h2>Исторические решения</h2>
+    <ul>
+      <li>Пагинация/слайды
+        <img src="pictures/pagination.png" alt="" height="200px" class="place top right"></li>
+      <li class="next">Infinite scroll
+        <img src="pictures/infinite.jpg" alt="" height="200px" class="place center right"></li>
+      <li class="next">Клонированные элементы
+        <img src="pictures/scroller.gif" alt="" height="200px" class="place bottom right"></li>
+      <li class="next">Скрытые элементы
+        <img src="pictures/hidden.jpg" alt="" height="200px" class="place bottom left"></li>
+      <li class="next">...</li>
+    </ul>
+    <style>
+      #solutions img {
+        z-index: -1;
+      }
+    </style>
+  </section>
+  <section class="slide">
+    <h2>Реализация</h2>
+    <ul>
+      <li><b>Unrealized</b></li>
+      <li><b>Realized</b></li>
+      <li><b>Visible</b></li>
+    </ul>
+    <img src="pictures/realization.png" alt="" height="100%" class="place top right">
+  </section>
+  <section class="slide" id="test-examples">
+    <h2>Неплохие тесты</h2>
+    <table class="results">
+      <tr>
+        <th scope="col"># of Records</th>
+        <th scope="col">Render Time</th>
+        <th scope="col"># of DOM Nodes</th>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>0.047 sec</td>
+        <td>329</td>
+      </tr>
+      <tr>
+        <td>250</td>
+        <td>0.466 sec</td>
+        <td>2,354</td>
+      </tr>
+      <tr>
+        <td>2,500</td>
+        <td class="bad">14.425 sec</td>
+        <td class="medium">22,604</td>
+      </tr>
+      <tr>
+        <td>25,000</td>
+        <td class="bad">crashed</td>
+        <td class="bad">??</td>
+      </tr>
+      <tr>
+        <td>250,000</td>
+        <td class="bad">crashed</td>
+        <td class="bad">??</td>
+      </tr>
+      <tr>
+        <td>1,000,000</td>
+        <td class="bad">crashed</td>
+        <td class="bad">??</td>
+      </tr>
+    </table>
+    <style>
+      #test-examples .bad {
+        background-color: #FFD9D7;
+      }
+      #test-examples .medium {
+        background-color: #FFF0D6;
+      }
+    </style>
+  </section>
+  <section class="slide">
+    <h2>Результаты после виртуализации</h2>
+    <table class="results">
+      <tr>
+        <th scope="col"># of Records</th>
+        <th scope="col">Render Time</th>
+        <th scope="col"># of DOM Nodes</th>
+      </tr>
+      <tr>
+        <td>25</td>
+        <td>0.021 sec</td>
+        <td>355</td>
+      </tr>
+      <tr>
+        <td>250</td>
+        <td>0.112 sec</td>
+        <td>2,605</td>
+      </tr>
+      <tr>
+        <td>2,500</td>
+        <td>0.036 sec</td>
+        <td>705</td>
+      </tr>
+      <tr>
+        <td>25,000</td>
+        <td>0.051 sec</td>
+        <td>705</td>
+      </tr>
+      <tr>
+        <td>250,000</td>
+        <td>0.198 sec</td>
+        <td>705</td>
+      </tr>
+      <tr>
+        <td>1,000,000</td>
+        <td>0.676 sec</td>
+        <td>705</td>
+      </tr>
+    </table>
+  </section>
+  <section class="slide" id="conclusions">
+    <h2>Выводы по эксперименту</h2>
+    <ul class="small-list">
+      <li><b>Большое количество DOM элементов</b> делает отрисовку <b>медленной</b></li>
+      <li>JavaScript-массивы способны обрабатывать большие объёмы данных</li>
+      <li><b>Циклы</b> на больших массивах <b>быстрые</b></li>
+      <li><b>Сортировка</b> массивов пользовательской функцией в <code>Array.sort()</code> <b>быстрая</b></li>
+      <li><code>eval()</code> <b>медленный</b>, не нужно использывать на больших объёмах данных</li>
+      <li>Для <b>плавного скрола</b> нужно отрисовывать небольшое количество <b>скрытых записей сверху и снизу</b> за границами видимой зоны</li>
+    </ul>
+    <style>
+      #conclusions .small-list {
+        font-size: 20px
+      }
+    </style>
+  </section>
+  <section class="slide">
+    <h2>Виртуализация списков вне JavaScript</h2>
+    <ul>
+      <li><a href="https://blogs.msdn.microsoft.com/alainza/2014/09/03/listview-basics-and-virtualization-concepts/">ListView Windows Phone</a></li>
+      <li><a href="https://developer.android.com/guide/topics/ui/layout/listview.html">ListView Android</a></li>
+      <li><a href="https://developer.apple.com/reference/uikit/uitableview">UITableView IOS</a></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Примеры реализации</h2>
+    <ul class="double">
+      <li><a href="http://jsfiddle.net/BHkHg/4/">Простейшая реализация на jsfiddle</a></li>
+      <li><a href="https://github.com/sergi/virtual-list">Virtual DOM List</a></li>
+      <li><a href="https://github.com/6pac/SlickGrid">SlickGrid</a></li>
+      <li><a href="http://lab.cubiq.org/iscroll5/demos/infinite/">iScroll</a></li>
+      <li><a href="https://github.com/roeierez/infinite-list">Infinite List</a></li>
+      <li><a href="http://triceam.github.io/MegaList/">MegaList (jQuery)</a></li>
+      <li><a href="https://github.com/2fdevs/angular-virtual-list">Angular Virtual List (Angular)</a></li>
+      <li><a href="https://bvaughn.github.io/react-virtualized/#/components/List">React Virtualized (React)</a></li>
+    </ul>
+  </section>
+  <div class="progress"></div>
+  <script src="../shower/shower.min.js"></script>
+  <!-- Copyright © 2017 Anna Prikhodko -->
 </body>
 </html>
